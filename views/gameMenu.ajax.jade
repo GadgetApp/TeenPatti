@@ -1,0 +1,113 @@
+script(type='text/ng-template',id='table.boot.html')
+ //-p.mb-0 TABLE 01
+ //-.tablebox.container.row.col-md-6.col-sm-6.col-6.text-center.mt-2
+    img.coinimg(src='/deckheros/images/coin.png')
+    p.ttitle.ml-0.mb-0 ₹{{gameTable.boot_amount}}
+ //-.col-md-6.col-sm-6.col-6.text-center.mt-2
+    img.coinimg(src='/deckheros/images/user.png')
+    p.ttitle.ml-0.mb-0 1350
+    .col-md-12.mb-2
+    span.ml-0.mr-5.tsubtitle Pot Limit: {{gameTable.pot_limit}}
+    span.ml-0.tsubtitle Pot Limit: {{gameTable.max_bet}}
+
+ .theader
+    p.mb-0 {{gameTable.table_name}}
+  .tablebox(ng-disabled='!gameTable.is_active || chips<gameTable.pot_limit',ng-click='playTable(gameTable)') 
+    .container
+      .row
+        .col-md-6.col-sm-6.col-6.text-center.mt-2
+          img.coinimg(src='/deckheros/images/coin.png')
+          p.ttitle.ml-0.mb-0 ₹{{gameTable.boot_amount}}
+        .col-md-6.col-sm-6.col-6.text-center.mt-2
+          img.coinimg(src='/deckheros/images/user.png')
+          p.ttitle.ml-0.mb-0 {{gameTable.userCount}}
+        .col-md-12.mb-2
+          span.ml-0.mr-5.tsubtitle Pot Limit: ₹{{gameTable.pot_limit}}
+          span.ml-0.tsubtitle Max Bet: ₹{{gameTable.max_bet}}
+.fullwidth
+      #sidebar1.colleft
+        .lobbyimg(ng-hide="isShowPlayFixGame" ng-click='playFixTable()')
+          img(src='/deckheros/images/lobbyimg.png')
+          .lobbyfullwidth
+            .lobbyicon
+              .text-center
+                img.coinimgleft(src='/deckheros/images/trophy.png')
+            .lobbytitle
+              .text-left
+                p.text-white.mt-3 {{fixGameLabel}}
+        .lobbyimg(ng-hide="isShowPlayJackpotGame" ng-click='playJackpotTable()')
+          img(src='/deckheros/images/lobbyimg.png')
+          .lobbyfullwidth
+            .lobbyicon
+              .text-center
+                img.coinimgleft(src='/deckheros/images/trophy.png')
+            .lobbytitle
+              .text-left
+                p.text-white.mt-3 {{jackpotGameLabel}}
+        .lobbyimg(ng-hide="isShowPlayPrivateGamee" ng-click='playPrivateTable()')
+          img(src='/deckheros/images/lobbyimg.png')
+          .lobbyfullwidth
+            .lobbyicon
+              .text-center
+                img.coinimgleft(src='/deckheros/images/trophy.png')
+            .lobbytitle
+              .text-left
+                p.text-white.mt-3 {{privateGameLabel}}
+        .lobbyimg
+          .container
+            .row
+              .col-md-6.col-sm-6.col-6.h-200.borright.borbottom
+                p.textyellow.tstatssubtitle.mb-0 Games
+                p.text-white.tstatssubtitlecount 0
+              .col-md-6.col-sm-6.col-6.text-right.h-200.borbottom
+                p.textyellow.tstatssubtitle.mb-0 Total Bet
+                p.text-white.tstatssubtitlecount 0
+            .row
+              .col-md-6.col-sm-6.col-6.h-200.borright
+                p.textyellow.tstatssubtitle.mb-0.mt-75 Won
+                p.text-white.tstatssubtitlecount.ml-2 0
+              .col-md-6.col-sm-6.col-6.text-right.h-200
+                p.textyellow.tstatssubtitle.mb-0.mt-75 Total Won
+                p.text-white.tstatssubtitlecount 0
+            .shieldimg
+              img(src='/deckheros/images/shild.png')
+              .text-white.shieldcount 125
+      #colrightid.colright
+        .rightcontent
+          .row
+             div.col-md-3.col-sm-6.col-12.text-white.mb-3(table-boot="",ng-repeat='gameTable in GameTablesByType', game-table="gameTable", play-table='playTable(gameTable)', get-table-user-count='getTableUserCount(gameTable)')
+    footer.footerbg
+      .footerprofile
+        .footericon
+          .fleft
+            .d-inline-block
+              .footeravtarimg
+                i.fa.fa-user
+              span.footeruser {{userName}}
+            .d-inline-block
+              .footeravtarimg
+                i.fa.fa-inr
+              span.footerbalance ₹{{chips | number}}
+          div
+            a(href='#')
+              img.ficon(src='/deckheros/images/music.png')
+            a(href='#')
+              img.ficon(src='/deckheros/images/sound.png')
+            a(href='#')
+              img.ficon(src='/deckheros/images/home.png')
+            a(ng-hide="false" ng-click='goBack()')
+              img.ficon(src='/deckheros/images/back.png')
+      img.m-hide(src='/deckheros/images/footerbg.svg' width='100%' height='auto')
+    // jQuery library
+    script(src='/deckheros/js/jquery.min.js')
+    // Popper JS
+    script(src='/deckheros/js/popper.min.js')
+    // Latest compiled JavaScript
+    script(src='/deckheros/js/bootstrap.min.js')
+    script.
+      function openNav() {
+      if (document.getElementById("sidebar1").style.left == "-270px" || document.getElementById("sidebar1").style.left == "")
+      document.getElementById("sidebar1").style.left = "0px";
+      else
+      document.getElementById("sidebar1").style.left = "-270px";
+      }

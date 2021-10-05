@@ -1,0 +1,55 @@
+section.middlepart
+        .teeenpattitable
+          .tbox
+            .tboxwidth
+              div
+                img.tboxbg(src='/deckheros/images/tboxtop.png')
+              .tboxmiddle(ng-hide="isShowPlayFixGame" ng-click='playFixTable()')
+                .coinbox
+                  img.alltuchtopdown(src='/deckheros/images/coins.svg')
+                .tboxtitle {{fixGameLabel}}
+              .tboxb
+                img.tboxbg.mt-0(src='/deckheros/images/tboxf.png')
+          .tbox
+            .tboxwidth
+              div
+                img.tboxbg(src='/deckheros/images/tboxtop.png')
+              .tboxmiddle(ng-hide="isShowPlayJackpotGame" ng-click='playJackpotTable()')
+                .coinbox
+                  img.alltuchtopdown(src='/deckheros/images/coins.svg')
+                .tboxtitle {{jackpotGameLabel}}
+              .tboxb
+                img.tboxbg.mt-0(src='/deckheros/images/tboxf.png')
+          .tbox
+            .tboxwidth
+              div
+                img.tboxbg(src='/deckheros/images/tboxtop.png')
+              .tboxmiddle(ng-hide="isShowPlayPrivateGamee" ng-click='playPrivateTable()')
+                .coinbox
+                  img.alltuchtopdown(src='/deckheros/images/coins.svg')
+                .tboxtitle {{privateGameLabel}}
+              .tboxb
+                img.tboxbg.mt-0(src='/deckheros/images/tboxf.png')
+          .tbox
+            .tboxwidth
+             
+    footer.footerbg
+      .footerprofile
+        .footericon
+          .fleft
+            .d-inline-block
+              .footeravtarimg
+                i.fa.fa-user
+              span.footeruser {{userName}}
+            .d-inline-block
+              .footeravtarimg
+                i.fa.fa-inr
+              span.footerbalance ₹{{chips | number}}
+          div
+            a(href='#')
+              img.ficon(src='/deckheros/images/music.png')
+            a(href='#')
+              img.ficon(src='/deckheros/images/sound.png')
+            a(href='#')
+              img.ficon(src='/deckheros/images/home.png')
+      img.m-hide(src='/deckheros/images/footerbg.svg' width='100%' height='auto')

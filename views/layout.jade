@@ -1,0 +1,56 @@
+doctype html
+html
+  head
+    script(type='text/javascript') window.onbeforeunload = function (e) {saveFormData(); return null;}; var saveFormData = function () {console.log('saved');}
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
+    link(rel='stylesheet', href='/deckheros/css/style.css')
+    link(rel='stylesheet', href='/deckheros/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/deckheros/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/deckheros/css/responsive.css')
+    link(rel='preconnect', href='https://fonts.googleapis.com')
+    link(rel='preconnect', href='https://fonts.gstatic.com' crossorigin='')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap')
+    block scripts
+      script(src='javascripts/vendor/jquery-1.10.2.js')
+      script(src='javascripts/vendor/bootstrap.js')
+      script(src='javascripts/vendor/angular-1.2.0.js')
+      script(src='javascripts/vendor/ui-bootstrap-0.12.0.min.js')
+      script(src='javascripts/vendor/angular-ui-router.js')
+      script(src='/socket.io/socket.io.js')
+      script(src='javascripts/main.js')
+      script(src='javascripts/vendor/html2canvas.min.js')
+      script(type='text/javascript' script='window.global = window')
+   body.bgimage(class=pagename,ng-app='teenPatti') 
+    header.topheader
+      .text-center
+        img(src='/deckheros/images/topheader.png' width='auto' height='auto')
+        .headername
+          p
+            i#swipmenu.fa.fa-bars.icon-toggle-right.mobile-menu(onclick='openNav()')
+            span.textyellow REAL GAMES
+    section.middlepart
+      #sidebar.col-left
+        .tgirl
+          img.img-fluid(src='/deckheros/images/girl.png')
+      div#girldiv.col-center1.markets
+       div#main(ng-controller='mainCtrl')
+        div#ajax-targ(ui-view="") 
+          block content
+      // jQuery library
+    script(src='/deckheros/js/jquery.min.js')
+    // Popper JS
+    script(src='/deckheros/js/popper.min.js')
+    // Latest compiled JavaScript
+    script(src='/deckheros/js/bootstrap.min.js')
+    script.
+      function openNav() {
+      if (document.getElementById("sidebar1").style.left == "-270px" || document.getElementById("sidebar1").style.left == "")
+      document.getElementById("sidebar1").style.left = "0px";
+      else
+      document.getElementById("sidebar1").style.left = "-270px";
+      }
+   
+ 
+   
